@@ -5,10 +5,12 @@ import 'package:flutter_kety_project/constraint/color.dart';
 import 'package:flutter_kety_project/pages/account_page.dart';
 import 'package:flutter_kety_project/pages/home_page.dart';
 import 'package:flutter_kety_project/pages/notification_page.dart';
+import 'package:flutter_kety_project/widget/custom_app_bar.dart';
 
 import 'package:flutter_kety_project/widget/custom_row.dart';
 import 'package:flutter_kety_project/widget/heading_text.dart';
 import 'package:flutter_kety_project/widget/navigation_bar_image.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryPage extends StatefulWidget {
   @override
@@ -22,38 +24,20 @@ class _CategoryPageState extends State<CategoryPage> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 90,
-        leading: Image.asset(
-          'assets/images/logo.png',
-          width: 20,
-          color: Colors.white,
-        ),
-        actions: [
-          Icon(
-            Icons.search,
-            size: 28,
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          Icon(
-            Icons.shopping_cart,
-            size: 28,
-          ),
-          SizedBox(
-            width: 15,
-          ),
-        ],
-        backgroundColor: AppColor.mainColor,
-        elevation: 0.0,
-      ),
+      appBar: CustomAppBar(),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
           Container(
+            alignment: Alignment.topCenter,
+            height: height,
+            width: width,
             color: AppColor.mainColor,
-            //child: Text(),
+            child: SvgPicture.asset(
+              'assets/images/undraw_woman_mevk.svg',
+              //alignment: Alignment.topCenter,
+              width: width * 0.55,
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(top: height * 0.3),
@@ -139,6 +123,25 @@ class _CategoryPageState extends State<CategoryPage> {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          width: width - 32,
+                          child: ListTile(
+                            leading: Image.asset(
+                              'assets/images/002-woman.png',
+                              scale: 5,
+                            ),
+                            title: Text('Amelia Nelson'),
+                            subtitle: null,
+                          ),
+                          //color: AppColor.mainColor,
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),
